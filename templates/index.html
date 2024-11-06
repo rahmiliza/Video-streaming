@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Video & Audio Surveillance</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/toastr.min.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css" />
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="d-flex gap-3 navbar-header">
+				<img src="{{url_for('static', filename='img/logo-surveillance.png')}}" style="height: 56px">
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="d-flex justify-content-center align-items-center">
+			<div class="card card-flush my-4">
+				<div class="card-body d-flex p-0" id="main-content">
+					<div id="launch" class="d-flex flex-grow-1 flex-shrink-1 justify-content-center align-items-center"
+						style="background-color: #BDBDBD; min-height: 366px; width: 650px;">
+						<div class="loading" id="start-loading" style="display: none;">
+							<div class="spinner-border text-primary" role="status">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+						</div>
+						<div autocomplete="off" id="start" class="btn-play">
+							<img src="{{url_for('static', filename='img/play.svg')}}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<template id="launch-template">
+		<div id="launch" class="d-flex flex-grow-1 flex-shrink-1 justify-content-center align-items-center"
+			style="background-color: #BDBDBD;  min-height: 366px; width: 650px;">
+			<div class="loading" id="start-loading" style="display: none;">
+				<div class="spinner-border text-primary" role="status">
+					<span class="visually-hidden">Loading...</span>
+				</div>
+			</div>
+			<div autocomplete="off" id="start" class="btn-play">
+				<img src="{{url_for('static', filename='img/play.svg')}}">
+			</div>
+		</div>
+	</template>
+
+	<template id="stream-template">
+		<div id="video-streaming" style="width: 650px;">
+			<div id="panel{panelId}" class="d-flex flex-column w-100 h-100">
+				<div>
+					<div class="d-flex w-100 panzoom" id="mstream{panelId}"></div>
+				</div>
+				<div class="rate-status d-flex p-2 gap-2">
+					<span class="badge bg-badge-transparent hide" id="status{mid}"></span>
+					<span class="badge bg-badge-transparent hide" id="curres{mid}"></span>
+					<span class="badge bg-badge-transparent hide" id="curbitrate{mid}"></span>
+				</div>
+				<div id="attr{panelId}" class="d-flex flex-column gap-3 m-3">
+					<div>
+						<div class="text-muted fs-9">Zoom</div>
+						<div class="d-flex flex-stratch flex-grow">
+							<input type="range" id="zoom-range" class="form-range" value="1" min="1" max="4"
+								step="0.001">
+						</div>
+					</div>
+					<div>
+						<div class="text-muted fs-9">Brightness</div>
+						<div class="d-flex flex-stratch flex-grow">
+							<input type="range" id="brightness-range" class="form-range" value="100" min="30" max="200"
+								step="10">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template id="novideo-template">
+		<div class="no-video-container audioonly">
+			<img src="{{url_for('static', filename='img/novideo.svg')}}" width="64" height="64">
+		</div>
+	</template>
+
+	<script type="text/javascript" src="{{ url_for('static', filename='js/webrtc-adapter.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/toastr.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/panzoom.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/settings.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/janus.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/stream.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+body {background-color: #f5f8fa}
+.fs-7 { font-size: .95rem!important; }
+.fs-8 { font-size: .85rem!important; }
+.fs-9 { font-size: .75rem!important; }
+.rounded {border-radius: .475rem;}
+.navbar.navbar-static-top {background-color: #ffffff; box-shadow: 0 10px 30px 0 rgba(82,63,105,.05);}
+.card {border: 1px solid #f1f1f2;box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.03);border-radius:  0.625rem;}
+.card-flush {overflow: hidden;}
+.btn-play {width: 64px; height: 64px; cursor: pointer; -moz-transition: all .4s ease-in-out; -o-transition: all .4s ease-in-out; -webkit-transition: all .4s ease-in-out; transition: all .4s ease-in-out;}
+.btn-play:hover {width: 68px; height: 68px;  -moz-transition: all .4s ease-in-out; -o-transition: all .4s ease-in-out; -webkit-transition: all .4s ease-in-out; transition: all .4s ease-in-out;}
+.btn-play:focus {}
+
+.no-video-container {display: flex;width: 100%;height: 100%;justify-content: center;align-items: center;background: #E0E0E0; min-height: 270px;}
+.bg-badge-transparent {background: rgb(155 155 155 / 38%);}
+.rate-status {position: absolute; top: 0; left: 0;}
+.rate-status .badge {font-size: 11px;}
